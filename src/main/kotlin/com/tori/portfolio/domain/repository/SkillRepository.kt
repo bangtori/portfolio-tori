@@ -1,0 +1,8 @@
+package com.tori.portfolio.domain.repository
+
+import com.tori.portfolio.domain.entity.*
+import org.springframework.data.jpa.repository.JpaRepository
+
+interface SkillRepository:JpaRepository<Skill, Long> {
+
+}

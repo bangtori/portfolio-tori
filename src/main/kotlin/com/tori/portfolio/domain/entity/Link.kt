@@ -7,9 +7,12 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 
 @Entity
-class Link: BaseEntity() {
+class Link(name: String, content: String, isActive: Boolean) : BaseEntity() {
     @Id // PK 명시
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "introduction_id")
+    @Column(name = "link_id")
     var id: Long? = null
+    var name: String = name
+    var content: String = content
+    var isActive: Boolean = isActive
 }

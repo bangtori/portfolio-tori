@@ -1,5 +1,5 @@
 package com.tori.portfolio.domain.constant
 
 enum class SkillType {
-    LANGUAGE, FRAMEWORK, DATABASE, TOOL
+    LANGUAGE, FRAMEWORK, LIBRARY, DEPENDENCY, ARCHITECTURE
 }

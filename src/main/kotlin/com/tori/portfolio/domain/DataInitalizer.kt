@@ -39,142 +39,176 @@ class DataInitalizer(
         // Achievement 초기화
         val achievements = mutableListOf<Achievement>(
             Achievement(
-                title = "2022 Catkao 해커톤 최우수상",
-                description = "고양이 쇼핑몰 검색 서비스의 아키텍처, 데이터 모델링, API 개발 역할 수행",
-                        host = "캣카오",
-                achievedDate = LocalDate.of(2022, 8, 1),
+                title = "멋쟁이 사자처럼 iOS 앱스쿨 2기 최종 프로젝트 우수상",
+                description = "PICO - 데이팅 앱 제작 / 좋아요 뷰, 푸시알림 기능 제작",
+                        host = "멋쟁이 사자처럼",
+                achievedDate = LocalDate.of(2023, 10, 6),
                 isActive = true
             ),
             Achievement(
                 title = "정보처리기사",
                 description = "자료구조, 운영체제, 알고리즘, 데이터베이스 등",
                 host = "한국산업인력공단",
-                achievedDate = LocalDate.of(2020, 2, 2),
+                achievedDate = LocalDate.of(2021, 11, 26),
                 isActive = true
             ),
         )
-        log.info("📌 Achievement 저장 시작")
         achievementRepository.saveAll(achievements)
-        log.info("✅ Achievement 저장 완료")
         // Introduction 초기화
         val introductions = mutableListOf<Introduction>(
-            Introduction(content = "주도적으로 문제를 찾고, 해결하는 고양이입니다.", isActive = true),
-            Introduction(content = "기술을 위한 기술이 아닌, 비즈니스 문제를 풀기 위한 기술을 추구합니다.",
+            Introduction(content = "반복되는 작업, 코드를 지양하고 어떻게 하면 재사용성이 높은 코드를 작성할 수 있을지 늘 고민합니다.", isActive = true),
+            Introduction(content = "사용자에게 효율적인 User Flow를 제공하기 위해 디자이너와 함께 고민합니다.",
                 isActive = true),
-            Introduction(content = "기존 소스를 리팩토링하여 더 좋은 구조로 개선하는 작업을 좋아합니다.",
+            Introduction(content = "모듈화, 아키텍쳐, 사용자UX 등에 관심을 가지고 있습니다.",
                 isActive = true)
         )
         introductionRepository.saveAll(introductions)
 
         // Link 초기화
         val links = mutableListOf<Link>(
-            Link(name = "Github", content = "https://github.com/infomuscle", isActive = true),
-            Link(name = "Linkedin", content = "https://www.linkedin.com/in/bokeunjeong",
+            Link(name = "Github", content = "https://github.com/bangtori", isActive = true),
+            Link(name = "Journals", content = "https://bang-tori.tistory.com/",
                 isActive = true),
         )
         linkRepository.saveAll(links)
 
         // Experience / ExperienceDetail 초기화
         val experience1 = Experience(
-            title = "캣홀릭대학교(CatHolic Univ.)",
-            description = "컴퓨터공학 전공"
-            ,
+            title = "공주대학교(Kongju Univ.)",
+            description = "컴퓨터공학 전공",
             startYear = 2018,
-            startMonth = 9,
-            endYear = 2022,
-            endMonth = 8,
+            startMonth = 3,
+            endYear = 2023,
+            endMonth = 2,
             isActive = true,
         )
         experience1.addDetails(
             mutableListOf(
-                ExperienceDetail(content = "GPA 4.3/4.5", isActive = true),
-                ExperienceDetail(content = "소프트웨어 연구 학회 활동"
-                    , isActive = true)
+                ExperienceDetail(content = "학생회 활동", isActive = true)
             )
         )
         val experience2 = Experience(
-            title = "주식회사 캣카오(Catkao Corp.)",
-            description = "소셜서비스팀 백엔드 개발자",
-                    startYear = 2022,
-            startMonth = 9,
-            endYear = null,
-            endMonth = null,
+            title = "멋쟁이사자처럼 iOS 앱스쿨 2기",
+            description = "iOS 개발 관련 지식 학습",
+            startYear = 2023,
+            startMonth = 5,
+            endYear = 2023,
+            endMonth = 10,
             isActive = true,
         )
         experience2.addDetails(
             mutableListOf(
-                ExperienceDetail(content = "유기묘 위치 공유 서비스 개발"
-                    , isActive = true),
-                ExperienceDetail(content = "신입 교육 프로그램 우수상 수상"
-                    , isActive = true)
+                ExperienceDetail(content = "최종 프로젝트 우수상", isActive = true),
             )
         )
         experienceRepository.saveAll(mutableListOf(experience1, experience2))
 
         // Skill 초기화
-        val java = Skill(name = "Java", type = SkillType.LANGUAGE.name, isActive = true)
-        val kotlin = Skill(name = "Kotlin", type = SkillType.LANGUAGE.name, isActive = true)
+        val swift = Skill(name = "Swift", type = SkillType.LANGUAGE.name, isActive = true)
         val python = Skill(name = "Python", type = SkillType.LANGUAGE.name, isActive = true)
-        val spring = Skill(name = "Spring", type = SkillType.FRAMEWORK.name, isActive = true)
-        val django = Skill(name = "Django", type = SkillType.FRAMEWORK.name, isActive = true)
-        val mysql = Skill(name = "MySQL", type = SkillType.DATABASE.name, isActive = true)
-        val redis = Skill(name = "Redis", type = SkillType.DATABASE.name, isActive = true)
-        val kafka = Skill(name = "Kafka", type = SkillType.TOOL.name, isActive = true)
-        skillRepository.saveAll(mutableListOf(java, kotlin, python, spring, django, mysql,
-            redis, kafka))
+        val UIKit = Skill(name = "UIKit", type = SkillType.FRAMEWORK.name, isActive = true)
+        val SwiftUI = Skill(name = "SwiftUI", type = SkillType.FRAMEWORK.name, isActive = true)
+        val RxSwift = Skill(name = "RxSwift", type = SkillType.LIBRARY.name, isActive = true)
+        val spm = Skill(name = "Swift Package Manager", type = SkillType.DEPENDENCY.name, isActive = true)
+        val firebase = Skill(name = "Firebase", type = SkillType.LIBRARY.name, isActive = true)
+        val realm = Skill(name = "Realm-swift", type = SkillType.LIBRARY.name, isActive = true)
+        val mvc = Skill(name = "Cocoa-MVC", type = SkillType.ARCHITECTURE.name, isActive = true)
+        val mvvm = Skill(name = "MVVM", type = SkillType.ARCHITECTURE.name, isActive = true)
+        val cleanArchitecture = Skill(name = "Clean-Architecture", type = SkillType.ARCHITECTURE.name, isActive = true)
+        skillRepository.saveAll(mutableListOf(swift, UIKit, SwiftUI, python, RxSwift, spm, firebase, realm, mvc, mvvm, cleanArchitecture))
         // Project / ProjectDetail / project_skill 초기화
         val project1 = Project(
-            name = "유기묘 발견 정보 공유 서비스",
-            description = "유기묘 위치의 실시간 공유, 임시보호까지 연결해주는 서비스. 구글 맵스를 연동하여 유기묘 위치 정보를 직관적으로 파악할 수 있도록 하는 사용자 경험 개선 작업.",
-                    startYear = 2022,
+            name = "PICO",
+            description = "MBTI를 활용한 매칭 시스템을 통해 사용자 간 커뮤니케이션을 지원하는 APP",
+            startYear = 2023,
             startMonth = 9,
-            endYear = 2022,
-            endMonth = 12,
+            endYear = 2024,
+            endMonth = 2,
             isActive = true
         )
         project1.addDetails(
             mutableListOf(
-                ProjectDetail(content = "구글 맵스를 활용한 유기묘 발견 지역 정보 제공 API 개발",
+                ProjectDetail(content = "공용 컴포넌트 디자인 시스템 구축 -> 코드 재사용성 및 디자인 통일성 향상",
                     url = null, isActive = true),
-                ProjectDetail(content = "Redis 적용하여 인기 게시글의 조회 속도 1.5초 → 0.5초로 개선",
-                url = null, isActive= true)
+                ProjectDetail(content = "푸시 알림 클릭 시 알림 종류에 따른 화면 이동 처리를 통한 사용자 경험 향상",
+                url = null, isActive= true),
+                ProjectDetail(content = "스크롤 시 데이터 페이징 처리를 통한 뷰 로딩 속도 개선 및 메모리 관리",
+                url = null, isActive= true),
+                ProjectDetail(content = "Github Repository",
+                    url = "https://github.com/bangtori/final-pico", isActive = true),
+                ProjectDetail(content = "App Store Link",
+                    url = "https://apps.apple.com/kr/app/%ED%94%BC%EC%BD%94-pico-pick-connect/id6473959557", isActive = true)
             )
         )
         project1.skills.addAll(
             mutableListOf(
-                ProjectSkill(project = project1, skill = java),
-                ProjectSkill(project = project1, skill = spring),
-                ProjectSkill(project = project1, skill = mysql),
-                ProjectSkill(project = project1, skill = redis)
+                ProjectSkill(project = project1, skill = swift),
+                ProjectSkill(project = project1, skill = UIKit),
+                ProjectSkill(project = project1, skill = firebase),
+                ProjectSkill(project = project1, skill = RxSwift),
+                ProjectSkill(project = project1, skill = mvvm),
             )
         )
         val project2 = Project(
-            name = "반려동물 홈 카메라 움직임 감지 분석 모듈",
-            description = "카메라에서 서버로 전달되는 신호를 분석하여 움직임이 감지될 경우 클라이언트에게 알림 발송 작업.",
-            startYear = 2022,
-            startMonth = 12,
+            name = "CATCHMATE",
+            description = "같은 팀을 응원하는 사람들을 만나 직관하고 싶은 혼직관러, 혹은 갑자기 빈 티켓 자리를위한 사람들을 위한 KBO 직관 친구 구하기 APP",
+            startYear = 2024,
+            startMonth = 6,
             endYear = null,
             endMonth = null,
             isActive = true
         )
         project2.addDetails(
             mutableListOf(
-                ProjectDetail(content = "PIL(Pillow) 활용하여 이미지 분석 기능 개발",
+                ProjectDetail(content = "iOS 앱 개발 기여도 100, 관리자 웹페이지 개발 기여도 50%",
                     url = null, isActive = true),
-                ProjectDetail(content = "알림 발송을 비동기 처리하여 이미지 분석 - 알림 발송 기능간 의존도 감소",
+                ProjectDetail(content = "Clean Architecture Layer 기반의 Error 구조 개선으로 에러 발생 위치와 맥락 정보를 추가해 UX와 DX를 효과적으로 통합 개선",
+                    url = null, isActive = true),
+                ProjectDetail(content = " AOS, iOS, 디자이너 간 각기 다른 컴포넌츠 언어를 하나의 용어로 정리한 Product Language를 정립하여 각 직군과의 소통 편의성 강화",
                     url = null, isActive = true),
                 ProjectDetail(content = "Github Repository",
-                    url = "https://github.com/infomuscle", isActive = true)
+                    url = "https://github.com/Dugout-Developers/CatchMate-iOS", isActive = true)
             )
         )
         project2.skills.addAll(
             mutableListOf(
-                ProjectSkill(project = project2, skill = python),
-                ProjectSkill(project = project2, skill = django),
-                ProjectSkill(project = project2, skill = kafka)
+                ProjectSkill(project = project2, skill = swift),
+                ProjectSkill(project = project2, skill = UIKit),
+                ProjectSkill(project = project2, skill = RxSwift),
+                ProjectSkill(project = project2, skill = cleanArchitecture),
             )
         )
-        projectRepository.saveAll(mutableListOf(project1, project2))
+
+        val project3 = Project(
+            name = "DYCOLOR",
+            description = "코드로 색상값 생성 시 간편하게 다크모드를 대응할 수 있는 모델 제공 라이브러리",
+            startYear = 2024,
+            startMonth = 6,
+            endYear = null,
+            endMonth = null,
+            isActive = true
+        )
+        project3.addDetails(
+            mutableListOf(
+                ProjectDetail(content = "모델 생성자 1줄의 컬러 생성 코드와 프로퍼티를 통해 화면 모드에 대응하는 컬러값을 접근하여 코드수 약 50 감소시켜 프로젝트의 가독성 향상",
+                    url = null, isActive = true),
+                ProjectDetail(content = "UIColor, Color extension hex code init, 밝기와 채도 조절 인스턴스 함수 제공하여 편리성 향상",
+                    url = null, isActive = true),
+                ProjectDetail(content = "Swift Package Manager 를 통한 라이브러리 배포",
+                    url = null, isActive = true),
+                ProjectDetail(content = "Github Repository",
+                    url = "https://github.com/bangtori/DYColor", isActive = true)
+            )
+        )
+        project3.skills.addAll(
+            mutableListOf(
+                ProjectSkill(project = project3, skill = swift),
+                ProjectSkill(project = project3, skill = UIKit),
+                ProjectSkill(project = project3, skill = SwiftUI),
+                ProjectSkill(project = project3, skill = spm),
+            )
+        )
+        projectRepository.saveAll(mutableListOf(project1, project2, project3))
         log.info("✅ 데이터 초기화 완료")
     }
 }
